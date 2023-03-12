@@ -48,6 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .accordion__input {
@@ -55,24 +56,20 @@ body {
     /*display: none;*/
 }
 
-
-/*крестик
-.tab-icon {
-
-    display: block;
-    width: 10%;
-    height: 2px;
-    background-color: black;
-
+.item__header {
+    display: flex;
+    align-content: space-between;
 }
 
-.tab-icon:first-child {
+.item__text {
+    margin-right: 5rem;
+}
+
+
+
+/*.tab-icon {
     transform: translateY(-50%) rotate(45deg);
-}
-.tab-icon:last-child {
-    transform: translateY(-50%) rotate(-45deg);
 }*/
-
 
 
 
@@ -86,7 +83,7 @@ body {
 .item__image {
    overflow: hidden;
     max-height: 0;
-    transition: max-height 0.5s;
+    transition: max-height .5s;
 
 
 
@@ -97,9 +94,24 @@ body {
     color: red;
 }*/
 
-.accordion__input:checked ~ .item__image {
+/*.accordion__input:checked ~ .item__image {
     max-height: 60rem;
+}*/
+
+label {
+    /*max-height: 0*/
 }
+
+#accordion-item-1:hover  .item__header{
+    max-height: 60rem;
+    transition: all .5s ease;
+}
+
+.accordion-label:checked span {
+    max-height: 80vh;
+    color: red;
+}
+
 
 
 
