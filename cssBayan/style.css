@@ -1,39 +1,45 @@
-
 html {
+
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
 body {
+    font-family: Arial, sans-serif;
     font-size: 1.6rem;
-
+    background-color: azure;
 }
 
-* {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
+}
+
+p {
+    margin: 0 0 .5rem;
 }
 
 
 /*тут стили которые включаются, если устройство поддерживает hover*/
 @media (hover: hover) and (pointer: fine) {
-    main > * {
+    .accordion__label {
         cursor: pointer;
     }
 }
-
 
 .wrapper {
     max-width: 122rem;
     margin: auto;
 }
 
-
-@media (max-width: 66.8rem){
+@media (max-width: 66.8rem) {
     .wrapper {
         padding: 0 5rem;
     }
 }
-@media (max-width: 33rem){
+
+@media (max-width: 33rem) {
     .wrapper {
         padding: 0 5rem;
     }
@@ -42,76 +48,71 @@ body {
 .header__h1 {
     text-align: center;
     font-weight: bold;
+
 }
+
+/***accordion***/
 
 .accordion__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-}
-
-.accordion__input {
-    /*Hide the toggle checkbox*/
-    /*display: none;*/
 }
 
 .item__header {
     display: flex;
-    align-content: space-between;
+    justify-content: space-between;
+    color: yellowgreen;
+    width: 40rem;
+    padding: 1rem;
+    border-top: .1rem solid black;
+    font-weight: bold;
 }
 
 .item__text {
     margin-right: 5rem;
 }
 
+.accordion__input {
+    /*Hide the toggle radio*/
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+}
 
+.accordion__label {
+    display: block;
+    transition: background-color .5s ease-out;
+}
+
+
+.accordion__label:hover > .item__header {
+    background-color: lemonchiffon;
+}
+
+.accordion__label:hover > .item__image {
+    max-height: 50rem;
+}
+
+.accordion__input:checked ~ .accordion__label .item__image {
+    max-height: 50rem;
+}
+
+.accordion__input:checked ~ .accordion__label .item__header {
+    background-color: lemonchiffon;
+}
 
 /*.tab-icon {
     transform: translateY(-50%) rotate(45deg);
 }*/
 
 
-
-
-.item__header{
-    font-weight: bold;
-
-
-}
-
 .item__image {
-   overflow: hidden;
+    display: block;
     max-height: 0;
-    transition: max-height .5s;
-
-
-
+    overflow: hidden;
+    transition: max-height .7s;
+    text-align: center;
 }
-
-
-/*.accordion-radio:checked ~ .accordion-header {
-    color: red;
-}*/
-
-/*.accordion__input:checked ~ .item__image {
-    max-height: 60rem;
-}*/
-
-label {
-    /*max-height: 0*/
-}
-
-#accordion-item-1:hover  .item__header{
-    max-height: 60rem;
-    transition: all .5s ease;
-}
-
-.accordion-label:checked span {
-    max-height: 80vh;
-    color: red;
-}
-
-
-
 
